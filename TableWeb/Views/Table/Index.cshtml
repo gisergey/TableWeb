@@ -1,0 +1,46 @@
+﻿@model List<WordsData>
+<div class="container">
+	<div class="row pt-4 pd-3">
+		<div class="col-6">
+			<h2 class="text-primary">
+				Словарь
+			</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a aps-controller="Table" asp-action="Create" class="btn btn-primary">
+				<i class="bi bi-patch-plus"></i> Добавить слово
+			</a>
+		</div>
+
+	</div>
+
+	<table class="table table-bordered table-striped">
+
+		<thead>
+			<tr>
+				<th>
+					Слово
+				</th>
+				<th>
+					Описание
+				</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var obj in Model.OrderBy(o => o.Name))
+			{
+				<tr>
+					<td>
+						@obj.Name
+					</td>
+					<td>
+						@obj.Description
+					</td>
+
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>
